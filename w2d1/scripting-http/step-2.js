@@ -17,10 +17,7 @@ function getAndPrintHTML () {
     // });
 
     response.on('data', function (chunk) {
-      for (var i = 0; i < data.length; i++) {
-        var dataChunked = data;
-      }
-      console.log('Data Chunked:', data += chunk);
+      data += chunk;
     });
 
     response.on('end', function() {
