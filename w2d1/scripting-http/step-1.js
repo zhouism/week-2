@@ -17,11 +17,11 @@ function getAndPrintHTMLChunks () {
     });
 
     response.on('end', function() {
-      console.log("Response stream complete:", data);
+      console.log("Response stream complete.");
     });
   });
 
 }
 
 console.log(getAndPrintHTMLChunks(data));
-//console.log("Program Ended");
+console.log("Program Ended");
