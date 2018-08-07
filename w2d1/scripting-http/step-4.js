@@ -2,17 +2,13 @@ var https = require('https');
 
 function getHTML (options, callback) {
 
-    https.get(options, function (response) {
-    var data = '';
+    https.get(requestOptions, function (response) {
     response.setEncoding('utf8');
 
-    response.on('data', function (chunk) {
-     data += chunk;
-    });
+    //callback function was here
 
     response.on('end', function() {
       console.log('Data stream complete.');
-      callback(data);
     });
   });
 
@@ -26,7 +22,15 @@ var requestOptions = {
   host: 'sytantris.github.io',
   path: '/http-examples/step4.html'
 };
-function screamHTML(html){
-  console.log('OMG', html.toUpperCase());
+
+getHTML(requestOptions, printHTML);
+
+var data = '';
+
+var options = {};
+
+var callback = function html() {
+  response.on('data', function (chunk) {
+      console.log('Data Chunked:', data += chunk);
+    });
 }
-getHTML(requestOptions, printHTML)
